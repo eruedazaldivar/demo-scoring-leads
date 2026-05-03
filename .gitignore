@@ -1,0 +1,34 @@
+# Entorno virtual Python (NUNCA se sube a Git)
+.venv/
+venv/
+env/
+
+# Variables de entorno con secretos (NUNCA se suben a Git)
+.env
+.env.local
+.env.*.local
+
+# Cachés de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos del sistema Windows
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Archivos del sistema Mac
+.DS_Store
+
+# Configuración local de VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# Logs
+*.log
+logs/
+
+# Streamlit
+.streamlit/secrets.toml
