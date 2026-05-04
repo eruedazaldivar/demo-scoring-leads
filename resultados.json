@@ -1,0 +1,702 @@
+[
+  {
+    "empresa": "Mecanizados Industriales del Norte SL",
+    "puntuacion_total": 13,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 2,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP ideal: B2B industrial, tamaño y facturación perfectos, ciclo consultivo. Madurez sobresaliente: reconocen problema de método tras descartar soluciones tecnológicas. Director Comercial con 8 años de antigüedad es decisor con alta probabilidad de autonomía. Timing bueno por saturación actual, aunque sin disparador crítico inmediato.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Componentes Plásticos García SA",
+    "puntuacion_total": 15,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 3,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, CEO decisor con diagnóstico claro del problema sistémico. Disparador evidente (crecimiento sin escalado del equipo comercial), timing definido Q1, presupuesto disponible y madurez conceptual alta (menciona RevOps).",
+    "patron_detectado": "ideal_cliente"
+  },
+  {
+    "empresa": "Talleres Hermanos Ruiz SL",
+    "puntuacion_total": 2,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 0,
+      "madurez_problema": 0,
+      "capacidad_decision": 1,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa claramente fuera de ICP por tamaño (18 empleados vs 50-200 requeridos). El dolor declarado es superficial y transaccional (buscan herramienta, no metodología). Presupuesto probablemente insuficiente para nuestros servicios.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Soluciones Logísticas Mediterráneo",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 0,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Encaje sectorial y de tamaño correcto, pero el contacto (Director de Operaciones) no es decisor comercial y el dolor articulado es operativo, no de sistema comercial. Sin seguimiento del Director Comercial sugiere baja prioridad o desalineación interna.",
+    "patron_detectado": "decisor_equivocado"
+  },
+  {
+    "empresa": "Industrias Metálicas del Ebro",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 1,
+      "timing": 1,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa encaja en sector industrial y tamaño, pero el interlocutor es Marketing sin autoridad decisoria. El dolor declarado es genérico (más leads) sin diagnóstico del sistema comercial, y la expectativa parece orientada a herramientas digitales, no a método.",
+    "patron_detectado": "decisor_equivocado"
+  },
+  {
+    "empresa": "Servicios Profesionales Auditoría 360 SL",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 3,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "CEO fundador con diagnóstico preciso del problema sistémico (proceso vs herramienta), urgencia declarada y capacidad de decisión plena. Único punto débil: 45 empleados está por debajo del rango ICP óptimo (50-200), pero facturación y perfil compensan.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Distribuciones Alimentarias Vega",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa encaja en ICP por sector, tamaño y facturación, y el contacto es decisor. Sin embargo, buscan herramienta táctica (scoring) sin reconocer problema sistémico subyacente. Expectativa de ROI a 3 meses y rechazo al Diagnóstico revelan mala comprensión del modelo consultivo.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Climatización Industrial del Sur SL",
+    "puntuacion_total": 10,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 1,
+      "timing": 2,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto (sector industrial B2B, tamaño adecuado, ciclo consultivo). Problema reconocido desde CEO pero contacto es Director Comercial reciente sin autonomía de decisión, lo que ralentizará proceso.",
+    "patron_detectado": "decisor_equivocado"
+  },
+  {
+    "empresa": "Maquinaria Agrícola Castilla",
+    "puntuacion_total": 7,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 1,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Encaja en ICP por sector, tamaño y facturación, y el contacto es decisor comercial. Sin embargo, el dolor es de internacionalización (fuera de nuestro core), no de metodología comercial doméstica, y no hay diagnóstico de sistema roto ni urgencia clara.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Soluciones Energéticas Renovables BCN",
+    "puntuacion_total": 10,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa ligeramente por debajo del ICP en tamaño (40 vs 50+ empleados) y facturación (9M vs 5-50M pero en el límite bajo). Director Comercial con autoridad clara. Problema reconocido (cualificación) pero no diagnóstico profundo del sistema. Riesgo: pueden optar por solución táctica (más comerciales) en lugar de método. Presupuesto declarado pero empresa pequeña limita capacidad.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  },
+  {
+    "empresa": "Confecciones Textiles Levante SA",
+    "puntuacion_total": 11,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 1,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño adecuado, CEO como decisor pleno. Problema claramente identificado y articulado con madurez. Sin embargo, timing largo confirmado y capacidad presupuestaria incierta en empresa familiar tradicional.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  },
+  {
+    "empresa": "Logística y Transporte Pirineos",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, facturación dentro de rango, decisor directo. Problema claramente articulado sobre método/diagnóstico (no herramienta). Presupuesto adecuado. Único punto débil: sin disparador urgente identificado.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Sistemas Hidráulicos Industriales SL",
+    "puntuacion_total": 3,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 0,
+      "madurez_problema": 0,
+      "capacidad_decision": 2,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (32 empleados vs 50-200) y facturación (4.5M vs 5-50M). Dolor genérico basado en moda tecnológica sin diagnóstico real de problema comercial. Aunque el gerente es decisor, no hay sistema comercial estructurado que transformar.",
+    "patron_detectado": "decision_por_moda"
+  },
+  {
+    "empresa": "Fabricación de Tornillería Especial",
+    "puntuacion_total": 11,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "ICP perfecto (industrial, tamaño ideal, B2B consultivo) y decisor correcto con mandato. Sin embargo, el dolor es genérico ('ser más eficientes') y la posible externalización completa del equipo comercial contradice nuestro modelo de transformación interna, lo que compromete la capacidad presupuestaria real para nuestros servicios.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Servicios Industriales Galicia SL",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "CEO de empresa industrial B2B en rango perfecto de facturación y empleados. Diagnóstico autopropuesto excepcional ('crecer por método vs inercia') indica madurez de problema alta. Único punto débil: timing no urgente pero predisposición clara.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Embalajes y Packaging del Atlántico",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 0,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "ICP correcto (sector industrial B2B, tamaño adecuado), pero RRHH no es decisor comercial y el problema está mal diagnosticado (enfoque en herramientas no en sistema). Hay timing por contratación activa pero sin derivación al verdadero decisor tras 3 semanas.",
+    "patron_detectado": "decisor_equivocado"
+  },
+  {
+    "empresa": "Maquinaria de Envasado Industrial",
+    "puntuacion_total": 11,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 2,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto (industrial, tamaño ideal, ciclo consultivo largo) con problema articulado de manera específica y estratégica. Sin embargo, el timing es débil por el cambio de ERP en curso, que típicamente bloquea otras iniciativas durante 6-12 meses.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  },
+  {
+    "empresa": "Talleres Metalúrgicos San Roque",
+    "puntuacion_total": 3,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 0,
+      "madurez_problema": 0,
+      "capacidad_decision": 1,
+      "timing": 0,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Empresa claramente fuera de ICP por tamaño (28 empleados vs 50-200 requeridos) y facturación (3.5M vs 5-50M). Dolor completamente genérico ('digitalizarnos') sin diagnóstico de problema comercial específico.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Software Industrial Específico SL",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 0,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Conflicto de interés claro: venden software a nuestro mismo público objetivo, riesgo de canibalización. Tamaño fuera de ICP (38 vs 50-200 empleados) y dolor genérico sin diagnóstico profundo.",
+    "patron_detectado": "conflicto_interes"
+  },
+  {
+    "empresa": "Construcciones Industriales del Sureste",
+    "puntuacion_total": 12,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Encaje ICP perfecto: sector industrial B2B, tamaño ideal, ciclo consultivo. Directora Comercial con autoridad y CEO involucrado. El problema está bien articulado (lentitud en propuestas vs competencia) pero el timing fiscal podría dilatar la decisión hasta Q1.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  },
+  {
+    "empresa": "Automatización y Robótica Industrial",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, venta consultiva con necesidad de educación de mercado. CEO fundador con diagnóstico preciso del problema sistémico. Único punto débil: timing sin disparador urgente explícito.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Distribución Repuestos Industriales SA",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, 75 empleados, 12M€, contacto con Director Comercial. Problema sistémico articulado con datos concretos (ratio cayendo del 30% al 18%). Diagnóstico es el producto natural para esta situación.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Ingeniería de Procesos Industriales",
+    "puntuacion_total": 10,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 0
+    },
+    "razonamiento_breve": "ICP perfecto (industrial, B2B, tamaño y facturación ideales) y decisor pleno (CEO). Sin embargo, el dolor es genérico ('crecer 25%') sin diagnóstico profundo del sistema comercial. La presión temporal podría dificultar un proyecto de transformación sólido.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Equipos de Frío Industrial Levante",
+    "puntuacion_total": 8,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 2,
+      "capacidad_decision": 1,
+      "timing": 2,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Sector industrial correcto pero empresa bajo umbral ICP (48 vs 50+ empleados). Reconocen problema sistémico pero contacto es Gerente Comercial sin claridad sobre autonomía de decisión. Timing medio por resultados mediocres sostenidos. Presupuesto justo según notas SDR.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Productos de Higiene Profesional SL",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP ideal: B2B industrial, tamaño y facturación perfectos. Problema sistémico articulado claramente (rotación comercial = fallo de método). Decisora plena que busca diagnóstico de raíz, no parches. Presupuesto adecuado para el segmento.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Maquinaria de Construcción del Norte",
+    "puntuacion_total": 8,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Empresa que encaja en ICP por tamaño y sector B2B industrial, pero el dolor declarado es organizativo (duplicación de esfuerzos entre equipos), no un problema de método comercial. El SDR detecta correctamente el riesgo de miscarga de expectativas.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Servicios Tecnológicos Industriales",
+    "puntuacion_total": 9,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "CEO con dolor reconocido (equipo técnico sin músculo comercial), pero empresa bajo mínimo ICP en tamaño y facturación. Candidato para Diagnóstico o formación, no para proyectos Core/Transformación.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Acabados Superficiales del Mediterráneo",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: industrial B2B, tamaño adecuado, ciclo consultivo. Director Comercial consciente del desfase sistémico ('vendemos igual que hace 15 años'), no busca herramienta sino cambio de método. Presupuesto disponible y CEO involucrado. Único punto: timing moderado por ausencia de disparador inmediato, aunque la presión competitiva es real.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Calderas y Quemadores Industriales",
+    "puntuacion_total": 10,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 1,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "ICP perfecto (industrial B2B, tamaño adecuado, ciclo consultivo) y problema muy bien diagnosticado (cambio de producto a solución requiere transformación de sistema). Sin embargo, Director Comercial sin mandato del CEO limita severamente la capacidad de decisión y el presupuesto disponible.",
+    "patron_detectado": "decisor_equivocado"
+  },
+  {
+    "empresa": "Maquinaria Hortofrutícola SL",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 0,
+      "capacidad_decision": 2,
+      "timing": 0,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (38 empleados vs 50-200 requeridos) con dolor completamente genérico sin diagnóstico de sistema. La gerente puede decidir pero no hay problema articulado ni urgencia clara.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Soluciones de Embalaje Sostenible",
+    "puntuacion_total": 8,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 1,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (28 empleados, 4M€ facturación) pero CEO con mandato claro y problema bien articulado (salto de segmento). Sin urgencia aparente y presupuesto limitado según SDR, Quick Win sería el encaje natural.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Equipamientos Hosteleros Industriales",
+    "puntuacion_total": 13,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 2,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "Encaje ICP perfecto: sector industrial B2B, tamaño ideal, facturación en rango. Problema muy concreto y articulado (fallo en trade-up, no genérico 'vender más'). Director Comercial decisor con CEO involucrado. Sin disparador urgente explícito pero con presupuesto razonable confirmado.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Componentes Eléctricos Industriales SA",
+    "puntuacion_total": 13,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal (180 empleados, 26M€), CEO como contacto directo, y problema articulado con precisión ('área comercial menos digitalizada'). Timing no urgente pero madurez y capacidad de decisión compensan claramente.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  },
+  {
+    "empresa": "Pinturas Industriales y Recubrimientos",
+    "puntuacion_total": 7,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (42 empleados vs 50-200 mínimo) y facturación baja (7M vs 5-50M). El Gerente tiene capacidad de decisión pero busca validación externa en lugar de diagnóstico real, lo que indica resistencia al cambio y baja madurez del problema reconocido.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Metalúrgica Especial del Cantábrico",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 3,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, 98 empleados, 15M€, ciclo consultivo especializado. Problema articulado con claridad (presión competitiva, necesidad de vender valor vs precio). Directora Comercial con mandato de CEO. Timing excelente por amenaza competitiva china actuando como disparador inmediato.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Sistemas de Pesaje Industrial SL",
+    "puntuacion_total": 4,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 0,
+      "madurez_problema": 1,
+      "capacidad_decision": 2,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (22 empleados vs mínimo 50) y facturación (3.5M vs mínimo 5M). El dolor declarado es de marketing/captación, no de método comercial o sistema, que es lo que resolvemos.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Servicios de Calibración y Metrología",
+    "puntuacion_total": 6,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 1,
+      "capacidad_decision": 3,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (32 empleados vs 50-200) y facturación (4.5M vs 5-50M). Decisora correcta pero timing inverso: ya contrataron comercial, buscan formación reactiva no diagnóstico preventivo. Sin reconocimiento de problema sistémico.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Soluciones de Iluminación Profesional",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, Director Comercial decisor. Dolor articulado con precisión ('algo falla en el sistema'), no genérico. Único gap: sin disparador urgente identificado.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Soldadura y Procesos Industriales",
+    "puntuacion_total": 4,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 0,
+      "capacidad_decision": 1,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa encaja en sector industrial B2B y tamaño, pero el dolor es completamente genérico sin diagnóstico real. Gerente operativo sin autoridad clara sobre sistema comercial, sin urgencia ni articulación del problema.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Reciclaje y Economía Circular Industrial",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 3,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "Encaje ICP perfecto: sector industrial B2B, tamaño ideal (88 empleados, 13M€), ciclo consultivo. Problema articulado con precisión (reposicionamiento requiere cambio de método comercial), decisora con mandato claro, timing impulsado por cambio estratégico y presión regulatoria.",
+    "patron_detectado": "ideal_cliente"
+  },
+  {
+    "empresa": "Distribución Industrial del Levante",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, CEO directo con problema sistémico articulado (heterogeneidad sin explicación = fallo de método). Único punto débil es timing: no hay disparador urgente explícito, pero el problema es reconocido y específico.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Maquinaria de Lavandería Industrial",
+    "puntuacion_total": 2,
+    "categoria": "No encaje",
+    "dimensiones": {
+      "encaje_icp": 0,
+      "madurez_problema": 0,
+      "capacidad_decision": 1,
+      "timing": 0,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa fuera de ICP por tamaño (30 empleados, 4.5M€) y sin problema real identificado. Motivación externa superficial sin diagnóstico comercial propio.",
+    "patron_detectado": "decision_por_moda"
+  },
+  {
+    "empresa": "Servicios Industriales del Sur SL",
+    "puntuacion_total": 8,
+    "categoria": "Encaje débil",
+    "dimensiones": {
+      "encaje_icp": 1,
+      "madurez_problema": 2,
+      "capacidad_decision": 2,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Empresa por debajo del umbral ICP (45 empleados vs 50-200 mínimo). Problema reconocido y articulado con disparador claro (consolidación sectorial), pero tamaño y facturación insuficientes para nuestro modelo de intervención.",
+    "patron_detectado": "fuera_icp_tamano"
+  },
+  {
+    "empresa": "Productos Químicos Industriales del Norte",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, ciclo consultivo. CEO reconoce problema sistémico-cultural con diagnóstico sofisticado. Decisora plena con compromiso real. Timing largo pero consciente de la necesidad de cambio.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Soluciones de Automatización Logística",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "Encaje ICP perfecto: B2B industrial, tamaño adecuado, venta consultiva de alto ticket. El Director Comercial reconoce el problema de forma específica ('caemos en muchas operaciones'), con acceso al CEO y presupuesto coherente con su facturación. Solo falta disparador de urgencia inmediata.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Empresa de Servicios Energéticos",
+    "puntuacion_total": 11,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 2,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 1
+    },
+    "razonamiento_breve": "Encaje conceptual excelente: dolor articulado (argumentación de valor vs precio), decisor pleno, sector adecuado. Limitación principal: tamaño bajo (38 empleados vs 50-200 del ICP) impacta presupuesto y capacidad de inversión. Sin disparador urgente claro pero problema reconocido.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Máquinas Herramienta de Precisión",
+    "puntuacion_total": 11,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 1,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto (industrial B2B, tamaño ideal, CEO directo) pero el problema está mal diagnosticado: culpar al marketing suele ocultar fallos en conversión comercial. Sin urgencia aparente ni disparador claro.",
+    "patron_detectado": "dolor_generico_sin_diagnostico"
+  },
+  {
+    "empresa": "Componentes para Energías Renovables",
+    "puntuacion_total": 15,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 3,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: B2B industrial, tamaño ideal, ciclo consultivo. Problema sistémico claro (crecimiento de mercado no capturado), Director Comercial con mandato del CEO, disparador evidente (presión competitiva y brecha de rendimiento), presupuesto confirmado disponible.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Industria Cárnica del Centro SL",
+    "puntuacion_total": 14,
+    "categoria": "Encaje claro",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 3,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 3
+    },
+    "razonamiento_breve": "ICP perfecto: industria B2B, tamaño ideal (140 empleados, 21M facturación), contacto decisor directo. Problema sistémico articulado ('no sabemos por qué') indica diagnóstico necesario. Presupuesto holgado para empresa de ese tamaño. Único matiz: timing sin disparador urgente explícito.",
+    "patron_detectado": "sistema_comercial_roto"
+  },
+  {
+    "empresa": "Soluciones de Climatización Profesional",
+    "puntuacion_total": 12,
+    "categoria": "Encaje parcial",
+    "dimensiones": {
+      "encaje_icp": 3,
+      "madurez_problema": 2,
+      "capacidad_decision": 3,
+      "timing": 2,
+      "capacidad_presupuestaria": 2
+    },
+    "razonamiento_breve": "ICP perfecto (B2B industrial, tamaño y facturación ideal, ciclo consultivo). Gerente con autoridad plena pidiendo diagnóstico externo. Falta urgencia explícita pero el contexto (nueva en puesto) sugiere presión para actuar pronto.",
+    "patron_detectado": "buen_encaje_timing_largo"
+  }
+]
