@@ -4,6 +4,78 @@ Registro de sesiones de trabajo sobre el proyecto de demo de scoring de leads co
 
 ---
 
+## Sesión 3 — 6 mayo 2026
+
+**Duración prevista:** 2-3 horas
+**Duración real:** ~2 horas
+
+### Qué hicimos
+
+**Sub-sesión 4C — Polish creativo de la UI Streamlit (rama experimental)**
+
+- Smoke test del entorno (venv + `test_api.py` respondió OK + `git status` limpio).
+- Creación de la rama `exp_UI` para iterar el polish sin tocar `main`.
+- Lectura del proyecto hermano `calculadora-capacidad` como referencia visual: Claude Code accedió a `index.html`, `css/styles.css` y `CLAUDE.md` para identificar el lenguaje visual (paleta crema/navy/oro tierra, tipografía Inter editorial, kickers eyebrow uppercase con líneas finas, marcas de agua sobre fondo oscuro, layout magazine).
+- Decisión de marca de trabajo: **TJC / TAKUMI JIDOKA → "Yidoca"**. Más accesible foneticamente para el ICP español. Decisión final del nombre comercial sigue abierta para sesión estratégica futura.
+- Plan estructurado de polish por secciones aprobado antes de ejecutar — disciplina aprendida de sesiones anteriores.
+- Aplicación: CSS global inyectado vía `st.markdown(unsafe_allow_html=True)` en una función `aplicar_estilos_yidoca()`, `.streamlit/config.toml` con tema base coherente, KPI cards crema custom HTML (sustituyen `st.metric`), bar charts Plotly tematizados con paleta navy, bloque héroe navy profundo con marca de agua "Yidoca" en `opacity 0.18`, footer editorial.
+- Detección de problemas en el primer render: contraste fallido en el bloque héroe (textos oscuros sobre navy oscuro, ilegibles), expander mostrando `_arrow_right` literal (la fuente Material Symbols pisada por mi propio override global), color verde oliva profundo con poco contraste sobre navy.
+- Iteración correctiva: textos del bloque héroe pasados a cream/cream-soft con `!important` por defensa en profundidad, `span`/`div` retirados del override de `font-family !important` para devolver el control de Material Symbols a Streamlit, escala de color de la puntuación recalibrada a tonos brillados (`#8FA77B / #C4A77B / #B89281 / #A8A39B`) que leen sobre navy.
+- Iteración propia por mi cuenta sobre la estructura: colapso de las tres capas en dos dropdowns (`Visión agregada` que agrupa Capa 1+2, `Análisis por Lead` que contiene la 3 con un expander anidado de información original). Reduce densidad cognitiva y controla la narrativa al abrir solo lo que el cliente necesita en cada momento del discovery.
+
+**Primer contacto con v0 (parte del bloque 2.2 del plan V3)**
+
+- Setup en `v0.dev` con login GitHub.
+- Primer prompt construido: largo, detallado, con hex codes obligatorios y especificaciones cerradas.
+- Primer mockup de v0 prácticamente idéntico a lo que ya teníamos en Streamlit. Sin sorpresa.
+- Identificación clara del problema: prompts restrictivos generan reproducción de la solución actual, no exploración real. Mismo error que cometí en la sesión 1 con la calculadora.
+- Segundo prompt corto y abierto preparado ("Surprise me", McKinsey internal tool, libertad creativa total).
+- Bloqueo por incidente del chat: imposibilidad de subir capturas de pantalla durante el contacto con v0. Sub-sesión interrumpida.
+
+**Cierre**
+
+- Decisión: la rama `exp_UI` se mantiene viva, no se mergea a `main` todavía. Pendiente iterar más con v0 cuando se restablezca la subida de imágenes.
+- Push de `exp_UI` a `origin` con upstream configurado, respaldada en GitHub aunque no esté integrada en `main`.
+
+### Qué aprendí
+
+- **El principio "prompts restrictivos vs prompts creativos" se aplica a TODAS las herramientas de generación con LLM.** Claude Code, v0, Lovable, cualquier futuro generador. Es disciplina universal, no específica de una herramienta. Si le das al modelo las restricciones de tu solución actual, te devuelve tu solución actual. Sin sorpresa.
+- **Para que un LLM te sorprenda visualmente, hay que darle el problema y no la solución.** Audiencia emocional + libertad creativa explícita + jaula clara solo donde es innegociable. La fórmula que aprendí en la calculadora aplica idéntica aquí.
+- **v0 y Streamlit son mundos técnicos distintos** (React/Next.js vs Python). v0 sirve como herramienta de **inspiración visual**, no como generador de código directamente integrable en Streamlit. Mezclar ambas cosas confunde la decisión.
+- **Tres approaches con v0 según ambición**: (1) inspiración visual capturando screenshots, (2) reconstruir todo en Next.js (15-30h adicionales), (3) híbrido con landing en v0 + demo en Streamlit. Para la fase actual de preparación silenciosa, el approach 1 es lo correcto. Los otros dos son trabajo que puede esperar.
+- **Capturar v0 visualmente es mi propio cuello de botella operativo.** El upload de imágenes en chat es la palanca crítica para iterar con v0. Cuando vuelva, hay que reservar tiempo de calidad para esa sesión.
+- **Iniciativa propia: detectar el ruido cognitivo de "todo a la vista" y resolverlo con desplegables.** Mucha información mostrada de golpe sobrecarga al cliente en discovery. La narrativa se controla decidiendo qué se ve y cuándo. Lección de UX que aplica a cualquier dashboard futuro.
+
+### Decisiones tomadas
+
+- **"Yidoca" como marca de trabajo** durante el desarrollo. Decisión final del nombre comercial sigue abierta para sub-sesión estratégica futura.
+- **Polish editorial con paleta crema/navy/oro tierra** coherente con la calculadora hermana.
+- **4 colores tonales para puntuaciones** (verde oliva / dorado tierra / terracota apagado / gris piedra) en lugar de rojo/amarillo/verde de semáforo. Editorial, no SaaS.
+- **Rama experimental `exp_UI` se mantiene abierta**, `main` no se toca hasta tener convicción real del polish con la inspiración v0 incorporada.
+- **v0 se explora como inspiración (Approach 1)**, no como herramienta de migración técnica. Sin Next.js todavía.
+- **Sub-sesiones futuras pendientes**: v0 a fondo (cuando vuelva el upload) + despliegue público (resto del bloque 2.2 del plan).
+- **Colapso de secciones en 2 dropdowns** como mejora UX, integrada en la rama experimental.
+
+### Próximos pasos
+
+- **Sesión 6: v0 a fondo cuando vuelva la subida de imágenes.** Sub-sesión completa de exploración visual con prompt creativo abierto + adaptación selectiva a Streamlit.
+- **Sesión 7 (o cuando proceda): despliegue público de la demo** (Streamlit Cloud o Render). Cierre del bloque 2.2 del plan V3.
+- **Sesión estratégica futura: decisión final del nombre comercial** (Yidoca, Takumi Consulting, otro). Verificación legal EUIPO/OEPM. Test de pronunciación con 3-5 ICP.
+- **Sesión técnica futura: paralelización del procesado de leads** (de 3 min secuencial a 30 seg paralelo).
+- **Sesión técnica futura: capacidad de upload de CSV en vivo** en la demo.
+
+### Estado al cierre
+
+`main` intacta y funcional con la versión de la sesión 4 (UI funcional sin polish editorial). Rama `exp_UI` con polish editorial Yidoca aplicado, respaldada en GitHub (`origin/exp_UI`). Demo funcional, presentable y narrativamente coherente desde `main`. Versión "premium" en rama experimental para iteraciones futuras. Pendiente desbloquear v0 con upload de imágenes para iteración profunda.
+
+### Dudas pendientes
+
+- ¿Qué porcentaje de v0 acabaremos incorporando a Streamlit cuando volvamos a ello? Decisión a tomar tras ver mockups con prompt creativo abierto.
+- Decisión final sobre nombre comercial. No urgente. Decisión Y0 con peso.
+- ¿Mantener la rama experimental viva o mergearla cuando haya iteración suficiente con v0? Decisión a tomar en sesión 6 según resultado.
+
+---
+
 ## Sesión 2 — 4 mayo 2026
 
 **Duración prevista:** 3+ horas
