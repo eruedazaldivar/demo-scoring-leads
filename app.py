@@ -110,7 +110,7 @@ hr[data-testid="stDivider"], hr {
   font-size: 1rem;
   font-weight: 400;
   color: var(--color-ink-muted);
-  max-width: 58ch;
+  max-width: none;
   margin: 0 0 3rem 0;
   line-height: 1.55;
 }
@@ -142,7 +142,7 @@ hr[data-testid="stDivider"], hr {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-ink-soft);
-  margin: 3.5rem 0 1.25rem 0;
+  margin: 6.5rem 0 1.5rem 0;
   display: flex;
   align-items: center;
   gap: 0.875rem;
@@ -161,7 +161,7 @@ hr[data-testid="stDivider"], hr {
   font-size: 1.0625rem;
   font-weight: 400;
   color: var(--color-ink);
-  max-width: 64ch;
+  max-width: none;
   margin: 0 0 2.5rem 0;
   line-height: 1.55;
 }
@@ -179,6 +179,7 @@ hr[data-testid="stDivider"], hr {
   border-radius: 10px;
   padding: 1.25rem 1.375rem 1.125rem;
   height: 100%;
+  margin-bottom: 2rem;
 }
 
 .yidoca-kpi-number {
@@ -346,7 +347,7 @@ hr[data-testid="stDivider"], hr {
   margin: 0;
   letter-spacing: -0.015em;
   line-height: 1.2;
-  max-width: 28ch;
+  max-width: none;
 }
 
 .yidoca-hero-meta {
@@ -451,7 +452,7 @@ hr[data-testid="stDivider"], hr {
   font-weight: 400;
   color: var(--color-cream) !important;
   line-height: 1.6;
-  max-width: 65ch;
+  max-width: none;
   margin: 0;
   letter-spacing: 0.005em;
 }
@@ -471,12 +472,32 @@ hr[data-testid="stDivider"], hr {
 }
 
 [data-testid="stExpander"] details summary {
+  padding: 1.75rem 1.875rem !important;
+  list-style: none;
+}
+
+[data-testid="stExpander"] details summary,
+[data-testid="stExpander"] details summary p {
   font-family: var(--font-sans) !important;
+  font-size: 1.875rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--color-ink) !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+/* Expander anidado — escalado abajo para no competir con los títulos de sección */
+[data-testid="stExpander"] [data-testid="stExpander"] details summary {
+  padding: 1.125rem 1.5rem !important;
+}
+
+[data-testid="stExpander"] [data-testid="stExpander"] details summary,
+[data-testid="stExpander"] [data-testid="stExpander"] details summary p {
   font-size: 0.9375rem !important;
   font-weight: 500 !important;
-  color: var(--color-ink) !important;
-  padding: 1.125rem 1.5rem !important;
-  list-style: none;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
 }
 
 [data-testid="stExpander"] details summary:hover {
@@ -497,13 +518,13 @@ hr[data-testid="stDivider"], hr {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-ink-soft);
-  margin: 2.5rem 0 1rem 0;
+  margin: 3.75rem 0 1.125rem 0 !important;
   display: flex;
   align-items: center;
   gap: 0.625rem;
 }
 
-.yidoca-trace-subkicker:first-child { margin-top: 0; }
+.yidoca-trace-subkicker:first-child { margin-top: 0 !important; }
 
 .yidoca-trace-subkicker::after {
   content: '';
@@ -540,7 +561,7 @@ hr[data-testid="stDivider"], hr {
   border-left: 2px solid var(--color-rule);
   padding: 0.25rem 0 0.25rem 1rem;
   margin: 0.5rem 0 1.25rem 0;
-  max-width: 72ch;
+  max-width: none;
   font-style: italic;
 }
 
