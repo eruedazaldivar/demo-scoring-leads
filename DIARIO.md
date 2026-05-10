@@ -4,6 +4,85 @@ Registro de sesiones de trabajo sobre el proyecto de demo de scoring de leads co
 
 ---
 
+## Sesión 4 — 7 mayo 2026
+
+**Duración prevista:** 1-2 horas
+**Duración real:** ~2 horas (justo en el límite)
+
+### Qué hicimos
+
+Sesión dedicada a v0 a fondo + adaptación de los hallazgos a Streamlit en la rama `exp_UI`.
+
+**Primer contacto profundo con v0**
+
+- Login en `v0.dev` con GitHub.
+- Aprendizaje de la sesión 5 aplicado: prompt corto y abierto en inglés ("Surprise me", referencia a McKinsey internal tool, libertad creativa total).
+- Resultado: 4 capturas de v0 con dirección visual fuerte y diferenciada.
+- v0 propuso decisiones que yo no habría tomado solo: KPIs adicionales (score medio, valor pipeline, con fricción), donut chart en lugar de bar chart, cards apiladas con severidad codificada en lugar de tabla de patrones, panel lateral deslizante para detalle de lead.
+
+**Adaptación a Streamlit en rama `exp_UI` — 3 cambios estructurales con validación visual entre cada uno**
+
+- **Cambio 1 — Capa 1 (5 KPIs + donut)**: sustituida la fila de 4 KPIs + bar chart por 5 elementos en `st.columns(5)`: Leads activos / Score medio /100 / Cuello de botella (Timing 1.5/3) / Con fricción / Donut Plotly. Donut con paleta editorial 4 colores tonales (verde oliva `#3D5A3F`, dorado tierra `#A88858`, terracota `#8B6F5C`, gris piedra `#7A716A`). Decisión KPI 3 "Cuello de botella" en lugar de "Patrón dominante" o "Eficiencia diagnóstica" — más narrativo, refuerza posicionamiento boutique.
+- **Cambio 2 — Capa 2 (cards apiladas)**: sustituida la tabla de patrones + bar chart horizontal por cards apiladas. Cada card con `border-left` 4px del color de severidad, header con icono + nombre + meta-info + badge, cuerpo en 2 columnas DIAGNÓSTICO + RECOMENDACIÓN. 3 constantes nuevas creadas: `PATRON_DESCRIPCIONES` (textos editoriales tono Yidoca, notas de consultor sénior), `PATRON_SEVERIDAD` (Crítico/Atención/Info), `PATRON_DIMENSION_AFECTADA`. Severidades asignadas: Crítico (decisor_equivocado, fuera_icp_tamano, fuera_icp_sector, presupuesto_insuficiente) / Atención (dolor_generico_sin_diagnostico, decision_por_moda, conflicto_interes, buen_encaje_timing_largo) / Info (ideal_cliente, sistema_comercial_roto). "Recomendación" con placeholder por ahora — pendiente sub-sesión separada de prompt engineering.
+- **Cambio 3 — Capa 3 (layout vertical ancho completo)**: el plan inicial era `st.columns([3, 2])` con tabla 60% / panel 40%. Tras render, detección de zona muerta a la derecha y compresión del panel. Decisión de cambio sobre la marcha: tabla arriba ancho completo + detalle abajo ancho completo. Tabla con selección reactiva (`st.dataframe` con `on_select="rerun"`, `selection_mode="single-row"`). Panel detalle con encabezado grid 2fr/1fr (nombre + score grande coloreado), 5 dimensiones en grid horizontal con barras coloreadas por valor, cuello de botella destacado, análisis estratégico + perfil empresa en grid 3fr/2fr, expander trazabilidad. Bloque héroe navy del detalle descartado en favor de panel sobre crema (coherencia visual con el resto de la app). Gestión de estado de fila seleccionada: opción simple (key con `cat_sel + pat_sel` — selección se resetea al cambiar filtros mayores) en lugar de `session_state` complejo (decisión YAGNI).
+
+**Cierre**
+
+- 4 smoke tests funcionales pasados (3 capas, selección, filtros, expander).
+- Commit y push de `exp_UI` con todos los cambios. Mantener `exp_UI` abierta — no mergear a `main` todavía. Mergeará cuando ejecute al menos una demo real con prospecto y la versión aguante.
+
+### Qué aprendí
+
+- **Los prompts a v0 deben ser cortos y abiertos para que la herramienta sorprenda.** Mismo principio que descubrí con Claude Code en `calculadora-capacidad`. Es disciplina universal de generación con LLMs, no específica de una herramienta concreta.
+- **v0 está optimizado para inglés.** Redactar prompts en inglés aunque el producto sea en español. La calidad del output cambia sensiblemente.
+- **Cuando una herramienta de generación me ofrece opciones técnicas con trade-offs, no decido yo directamente: escalo al mentor para evaluación meta.** La tecnología es medio, la decisión es sobre el producto.
+- **Las operaciones irreversibles** (merge a `main`, force push, delete branch) **merecen pausa adicional incluso aunque el trabajo se vea bien.** La duda razonable cuesta menos que el rollback.
+- **Mi propio instinto de UX gana ocasionalmente al criterio del mentor.** Específicamente: cuando el mentor propone un layout porque "es lo que hace v0" o "es el patrón estándar", mi pregunta "¿pero esto realmente funciona en mi pantalla con mi uso?" produce mejores resultados.
+- **Modificar el padding global de Streamlit es patrón común** en producción para apps "tipo informe", no dashboards genéricos. La diferencia entre "se ve a Streamlit" y "se ve a producto curado" pasa por ahí.
+- **Capturar v0 visualmente y describir con criterio "qué decisiones tomó que yo NO habría tomado" abre vocabulario visual nuevo.** v0 no es para copiar — es para ver qué es posible. La pregunta correcta no es "¿lo aplico?" sino "¿qué intuición visual tenía v0 que a mí se me había escapado?"
+- **La feature de selección reactiva en `st.dataframe`** (`on_select="rerun"`) es estable desde Streamlit 1.35. Permite UX moderna sin necesidad de `session_state` complejo en muchos casos. Cambia lo que se puede pedirle a Streamlit como herramienta de prototipado.
+- **Iterar visualmente entre cada cambio estructural** (Cambio 1 → validar → Cambio 2 → validar → Cambio 3 → validar) **es disciplina cara pero ahorra rollbacks dolorosos.** Si hubiera aplicado los 3 de un tirón, el cambio de plan en Capa 3 (de columnas a vertical) habría requerido deshacer mucho.
+- **Las descripciones de patrones en Yidoca tienen voz: notas de consultor sénior, no marketing genérico.** Frases tipo "El dolor está articulado y el problema apunta a nuestro lenguaje" son la diferencia entre boutique premium y dashboard SaaS.
+
+### Decisiones tomadas
+
+- **5 KPIs en Capa 1 con métricas reales calculables** — sin inventar campos como "valor pipeline" sin datos.
+- **KPI 3 "Cuello de botella"** como métrica diagnóstica destacada, no "Patrón dominante" ni "Eficiencia diagnóstica".
+- **Donut compacto en columna 5** (en lugar de fila propia) — funcionó visualmente, no hizo falta plan B.
+- **"Recomendación" por patrón = pendiente** para sub-sesión separada de prompt engineering. Modificar prompt de scoring + reprocesar 50 leads + validar calidad.
+- **Cards apiladas con severidad por color** en Capa 2 (no tabla).
+- **Severidades asignadas con justificación**: Crítico = bloqueo estructural (no se neutraliza con tiempo), Atención = fricción cualitativa neutralizable, Info = señales positivas que destacar.
+- **Layout vertical en Capa 3** (no 2 columnas) — mejor uso del ancho de pantalla y composición tipo informe.
+- **Bloque héroe navy del detalle descartado** — coherencia visual sobre presencia gráfica.
+- **Selección con key dinámica** que resetea al cambiar filtros, en lugar de `session_state` (YAGNI).
+- **Mantener `exp_UI` abierta**, no mergear a `main` todavía.
+
+### Próximos pasos
+
+- **Sub-sesión de prompt engineering**: añadir "Recomendación" por patrón. Modificar prompt de scoring, reprocesar 50 leads, validar la calidad de las recomendaciones generadas.
+- **Sub-sesión 4D opcional de ajustes finos**: validar si el donut necesita diferenciación visual adicional, si las 5 dimensiones se ven apretadas en pantallas grandes, si el header del lead necesita ajuste de proporciones.
+- **Decisión de merge `exp_UI` → `main`**: tras ejecutar al menos una demo real con prospecto.
+- **Despliegue público de la demo** (Streamlit Cloud o Render) — cierre del bloque 2.2 del plan V3.
+- **Paralelización del procesado de leads** (3 min secuencial → 30 seg paralelo).
+- **Capacidad de upload de CSV en vivo** en la demo.
+- **Decisión final del nombre comercial** (Yidoca vs alternativas) — sub-sesión estratégica futura.
+- **Construir Demo 2** (propuestas o chatbot).
+- **Bloque 2.3 Make.com**.
+- **Bloque 2.5 HubSpot Workflows**.
+- **`DOCUMENTACION/` por demo** cuando estén estables.
+
+### Estado al cierre
+
+`main` intacta y funcional con la versión de la sesión 5 (UI con polish editorial Yidoca + iteraciones manuales del fundador). Rama `exp_UI` con rediseño profundo de Capas 1-2-3 inspirado en v0, respaldada en GitHub (`origin/exp_UI`). Demo más robusta narrativamente: 5 KPIs reales + cards apiladas con diagnóstico/recomendación + layout informe ancho completo. Pendiente decidir el merge cuando haya prueba real en demo con prospecto.
+
+### Dudas pendientes
+
+- ¿Las recomendaciones por patrón (cuando se implementen) deben ser genéricas para todos los leads del patrón, o personalizadas por lead? Decisión de prompt engineering pendiente.
+- ¿El merge a `main` lo hago tras 1 demo real, o tras 3-5 demos para validar resistencia al uso real?
+- ¿Los ajustes finos visuales pendientes (donut, dimensiones, score) los hacemos antes del merge o después?
+
+---
+
 ## Sesión 3 — 6 mayo 2026
 
 **Duración prevista:** 2-3 horas
