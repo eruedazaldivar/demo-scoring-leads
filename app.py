@@ -1417,18 +1417,14 @@ with st.expander("Visión agregada", expanded=False):
         unsafe_allow_html=True,
     )
 
-    cards_html = ""
-    for patron_key, n_count in patrones_ordenados:
-        if n_count < 1:
-            continue
+    def render_pattern_card(patron_key: str, n_count: int) -> str:
         label = PATRON_LABELS.get(patron_key, patron_key)
         severidad = PATRON_SEVERIDAD.get(patron_key, "info")
         sev_info = SEVERITY_INFO[severidad]
         descripcion = PATRON_DESCRIPCIONES.get(patron_key, "—")
         dim_afectada = PATRON_DIMENSION_AFECTADA.get(patron_key, "—")
         leads_label = "lead impactado" if n_count == 1 else "leads impactados"
-
-        cards_html += (
+        return (
             f'<div class="yidoca-pattern-card yidoca-pattern-card-{severidad}">'
             '<div class="yidoca-pattern-header">'
             '<div class="yidoca-pattern-header-left">'
@@ -1454,7 +1450,30 @@ with st.expander("Visión agregada", expanded=False):
             '</div>'
         )
 
-    st.markdown(cards_html, unsafe_allow_html=True)
+    # Agrupar patrones por severidad respetando el orden por leads impactados desc
+    SEVERITY_ORDER = ["critico", "atencion", "info"]
+    EXPANDER_TITLES = {
+        "critico": "Bloqueos estructurales",
+        "atencion": "Fricción cualitativa",
+        "info": "Señales positivas",
+    }
+    cards_by_severity = {sev: [] for sev in SEVERITY_ORDER}
+    for patron_key, n_count in patrones_ordenados:
+        if n_count < 1:
+            continue
+        sev = PATRON_SEVERIDAD.get(patron_key, "info")
+        cards_by_severity[sev].append((patron_key, n_count))
+
+    for sev in SEVERITY_ORDER:
+        cards_list = cards_by_severity[sev]
+        if not cards_list:
+            continue
+        title = f"{EXPANDER_TITLES[sev]} ({len(cards_list)})"
+        with st.expander(title, expanded=False):
+            st.markdown(
+                "".join(render_pattern_card(p, n) for p, n in cards_list),
+                unsafe_allow_html=True,
+            )
 
     st.markdown(
         '<p class="yidoca-subkicker">Calidad por dimensión (promedio sobre 3)</p>',
