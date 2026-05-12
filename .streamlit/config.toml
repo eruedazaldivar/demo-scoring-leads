@@ -1,0 +1,12 @@
+# Theme base de Yidoca — paleta crema-navy editorial
+# Cubre los componentes que el CSS inyectado no llega
+# (popovers de selectbox, hover de checkboxes internos, etc.)
+# El polish fino se inyecta desde aplicar_estilos_yidoca() en app.py
+
+[theme]
+base = "light"
+primaryColor = "#1E3A5F"
+backgroundColor = "#F6F2EA"
+secondaryBackgroundColor = "#FBF8F2"
+textColor = "#141A24"
+font = "sans serif"
