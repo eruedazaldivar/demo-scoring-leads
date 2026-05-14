@@ -14,6 +14,8 @@ from tqdm import tqdm
 
 from scoring import evaluar_lead
 
+from arreglar_resultados import categoria_desde_puntuacion
+
 # Precios Sonnet 4.5 (USD por millón de tokens)
 PRECIO_INPUT_POR_MILLON = 3.0
 PRECIO_OUTPUT_POR_MILLON = 15.0
@@ -67,6 +69,13 @@ def main():
         output_tokens_total += out_t
 
         if resultado is not None:
+            # Post-procesado: recalcular campos derivados deterministicamente
+            # Los LLMs son probabilísticos también en matemática simple (~4% error en sumas)
+            if resultado.get("dimensiones"):
+                suma_real = sum(resultado["dimensiones"].values())
+                resultado["puntuacion_total"] = suma_real
+                resultado["categoria"] = categoria_desde_puntuacion(suma_real)
+
             resultados.append({"empresa": empresa, **resultado})
         else:
             resultados.append({

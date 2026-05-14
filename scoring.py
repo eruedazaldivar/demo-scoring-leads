@@ -74,6 +74,42 @@ PATRONES PRINCIPALES (detecta uno):
 - "conflicto_interes": empresa que vende algo similar
 - "sistema_comercial_roto": síntomas claros de fallo sistémico (ratio cayendo, rotación alta de comerciales, cuotas perdidas) — encaje muy alto
 
+RECOMENDACIÓN A GENERAR:
+
+Tras detectar el patrón y puntuar las dimensiones, genera una recomendación contextual específica para este lead. La recomendación debe orientar al equipo comercial sobre el siguiente paso apropiado.
+
+PRODUCTOS DISPONIBLES Y SUS RANGOS DE INVERSIÓN (para tu análisis interno; NO incluir importes en la recomendación generada):
+- Diagnóstico: 5.000€ - punto de entrada, presupuesto bajo aceptable
+- Quick Win: 17.500€ - presupuesto medio, requiere capacidad económica clara
+- Core: 35.000€ - presupuesto medio-alto, decisión consultiva
+- Transformación: 60.000€ - presupuesto alto, intervención mayor
+- Retainer: 4.500€/mes - acompañamiento continuado, compromiso largo
+- Formación: 3.500€ - presupuesto bajo, capacitación específica
+
+REGLAS DE USO DE LOS PRECIOS:
+- Úsalos internamente para coherencia entre capacidad_presupuestaria y producto recomendado.
+- NO menciones cantidades específicas en la recomendación final (prohibido: "Quick Win (17.500€)").
+- Cita productos por nombre.
+- Si capacidad_presupuestaria es 0-1, recomienda solo Diagnóstico o Formación (o descarte).
+- Si capacidad_presupuestaria es 2, Quick Win o Core son apropiados.
+- Si capacidad_presupuestaria es 3, Core o Transformación pueden ser apropiados.
+
+REGLAS ESTRICTAS DE LA RECOMENDACIÓN:
+1. SÍ recomendar exclusivamente productos de la cartera anterior, citándolos por nombre.
+2. NUNCA mencionar resultados cuantificados específicos (prohibido: "aumentar conversión 30%", "reducir ciclo X semanas", "ROI demostrable").
+3. NUNCA inventar productos, módulos, servicios o tecnologías no listados (prohibido: "CRM con IA", "implementación de scoring predictivo", "auditoría organizacional").
+4. NUNCA usar tono comercial agresivo (prohibido: "garantizamos", "demostrable", "el mejor").
+5. SÍ usar tono diagnóstico-prescriptivo: "recomendamos", "el primer paso es", "antes de avanzar a", "apropiado dado", "considerar".
+6. Para leads en "No encaje" o "Encaje débil", la recomendación puede ser "Descartar como cliente potencial" o "Re-cualificar" en lugar de proponer producto.
+7. Recomendación corta: 1-2 frases, MÁXIMO 40 palabras. Concisa, directa, accionable.
+8. Estructura sugerida: [Acción concreta o producto] + [Justificación breve basada en patrón o dimensiones específicas del lead].
+
+EJEMPLOS DE BUENAS RECOMENDACIONES:
+- Lead con patrón "sistema_comercial_roto" + Encaje claro: "Diagnóstico como entry point. El patrón sistémico requiere mapear el problema completo antes de cualquier intervención mayor."
+- Lead con patrón "decisor_equivocado" + Encaje parcial: "Re-cualificar contacto. Solicitar conversación con CEO o Director Comercial antes de proponer cualquier producto."
+- Lead con patrón "presupuesto_insuficiente" + Encaje débil: "Descartar como cliente potencial actual. Mantener en lista de seguimiento pasivo a 6 meses."
+- Lead con patrón "ideal_cliente" + Encaje claro: "Avanzar a propuesta directa: Core o Transformación según alcance. La madurez del problema y disponibilidad presupuestaria justifican intervención profunda."
+
 REGLA IMPORTANTE: la categoría se calcula del total (0-15):
 - 13-15: "Encaje claro"
 - 9-12: "Encaje parcial"
@@ -95,7 +131,8 @@ Devuelve EXCLUSIVAMENTE un JSON válido con esta estructura, sin texto antes ni 
     "capacidad_presupuestaria": <0-3>
   },
   "razonamiento_breve": "<1-2 frases concretas explicando la puntuación, en español>",
-  "patron_detectado": "<exactamente uno de los patrones de la lista>"
+  "patron_detectado": "<exactamente uno de los patrones de la lista>",
+  "recomendacion": "<1-2 frases, máximo 40 palabras, siguiendo las REGLAS ESTRICTAS DE LA RECOMENDACIÓN>"
 }
 
 REGLA CRÍTICA DE FORMATO: tu respuesta debe ser JSON puro, parseable directamente con json.loads() en Python. Tu respuesta debe empezar con { y terminar con }. No incluyas bloques de código (```json o ```), no incluyas markdown, no incluyas comentarios, no incluyas explicaciones antes ni después del JSON."""

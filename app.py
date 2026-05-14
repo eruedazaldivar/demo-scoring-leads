@@ -980,6 +980,33 @@ hr[data-testid="stDivider"], hr {
   margin: 0 !important;
   line-height: 1.55 !important;
 }
+
+/* === Bloque RECOMENDACIÓN (Capa 3, al final del panel detalle) === */
+
+.yidoca-recomendacion-block {
+  background: var(--color-bg);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.yidoca-recomendacion-eyebrow {
+  font-size: 0.625rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.18em !important;
+  color: var(--color-gold) !important;
+  margin: 0 0 0.625rem 0 !important;
+}
+
+.yidoca-recomendacion-text {
+  font-size: 0.9375rem !important;
+  color: var(--color-ink) !important;
+  line-height: 1.6 !important;
+  font-style: italic;
+  margin: 0 !important;
+}
 </style>
         """,
         unsafe_allow_html=True,
@@ -1234,6 +1261,7 @@ def render_panel_detalle(lead_sel: dict, lead_original) -> str:
     label_patron = PATRON_LABELS.get(lead_sel["patron_detectado"], lead_sel["patron_detectado"])
     color_score = color_por_categoria(categoria)
     score_100 = round(lead_sel["puntuacion_total"] * 100 / 15)
+    recomendacion = lead_sel.get("recomendacion", "Recomendación no disponible.")
 
     bottleneck_dim = min(lead_sel["dimensiones"], key=lead_sel["dimensiones"].get)
     bottleneck_label = DIMENSIONES_INFO[bottleneck_dim]["label"]
@@ -1303,6 +1331,10 @@ def render_panel_detalle(lead_sel: dict, lead_original) -> str:
         '</div>'
         '</div>'
         '</div>'
+        '</div>'
+        '<div class="yidoca-recomendacion-block">'
+        '<p class="yidoca-recomendacion-eyebrow">Recomendación</p>'
+        f'<p class="yidoca-recomendacion-text">{recomendacion}</p>'
         '</div>'
         '</div>'
     )
