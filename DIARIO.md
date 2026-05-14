@@ -4,6 +4,91 @@ Registro de sesiones de trabajo sobre el proyecto de demo de scoring de leads co
 
 ---------------------------------------------------------------------------------------------------------------------
 
+## Sub-sesión 11 — 13 mayo 2026 — Recomendación contextual por lead
+
+**Tiempo invertido:** ~2h 15min
+**Coste API real:** $0.5913 USD
+
+### Objetivo
+
+Añadir un campo `recomendacion` contextual por lead al sistema de scoring. Pasar de un análisis puramente diagnóstico (categoría + dimensiones + patrón) a uno prescriptivo (qué hacer con cada lead).
+
+### Decisión meta inicial
+
+Enfoque B (CONTEXTUAL dinámica) elegido vs A (estática por patrón). El LLM genera una recomendación específica para cada lead basada en patrón + dimensiones + tamaño + presupuesto. Aceptado con consciencia de riesgos (productos inventados, recomendaciones cuantificadas, inconsistencia entre leads similares).
+
+Decisión adicional: precios de productos disponibles van al prompt como **información para razonamiento interno** pero NO se mencionan en el output. Coherente con posicionamiento boutique (precios discretos, no públicos en demo).
+
+### Cambios técnicos aplicados
+
+**1. scoring.py — prompt sistema modificado:**
+- Añadido bloque `RECOMENDACIÓN A GENERAR` con cartera de productos + precios (uso interno) + 8 reglas estrictas + 4 ejemplos por escenario.
+- JSON esperado ampliado con campo `recomendacion: <1-2 frases, máximo 40 palabras>`.
+
+**2. procesar_leads.py — post-procesamiento determinista:**
+- Importa `categoria_desde_puntuacion` de `arreglar_resultados.py`.
+- Después de cada llamada a `evaluar_lead`, recalcula `puntuacion_total = sum(dimensiones)` y `categoria` deterministicamente.
+- Razón: en este reprocesado se detectó 4% error LLM en sumas (2/50 leads tenían `puntuacion_total` distinta de la suma real de dimensiones).
+
+**3. arreglar_resultados.py — script auxiliar nuevo:**
+- Función `categoria_desde_puntuacion(puntuacion)` con los umbrales (13-15 Encaje claro, 9-12 parcial, 5-8 débil, 0-4 No encaje).
+- Script main que recorre `resultados.json`, recalcula campos derivados, sobrescribe JSON + CSV.
+- Idempotente: ejecutarlo dos veces consecutivas no causa cambios en la segunda ejecución.
+
+**4. app.py — UI con bloque visual RECOMENDACIÓN:**
+- Función `render_panel_detalle` modificada quirúrgicamente: una línea para extraer recomendacion + un bloque HTML de 4 líneas al final del panel (justo antes del cierre de `.yidoca-panel-detalle`).
+- CSS nuevo con 3 clases: `.yidoca-recomendacion-block` (background crema + border-left 3px oro tierra), `.yidoca-recomendacion-eyebrow` (oro tierra), `.yidoca-recomendacion-text` (italic, ink color, line-height 1.6).
+- Variable CSS `--color-gold: #B89968` aprovechada (ya existía en el design system).
+
+### Workflow Git aplicado
+
+1. Rama experimental `exp_recomendacion` creada desde main.
+2. Cambios trabajados, validados con test pequeño (3 leads, índices 0, 2, 17) antes del reprocesado completo.
+3. 50 leads reprocesados con `procesar_leads.py`, 0 errores de parseo, 4m 32s.
+4. 2 inconsistencias detectadas con `analizar_resultados.py`, corregidas con `arreglar_resultados.py` (1 cambio de categoría: Distribuciones Alimentarias Vega "No encaje" → "Encaje débil").
+5. Validación local con `streamlit run app.py` antes de commitear.
+6. Add + commit (mensaje descriptivo) + push de exp_recomendacion.
+7. Checkout main + merge exp_recomendacion (fast-forward) + push origin main.
+8. Borrado de rama local Y remota.
+9. Streamlit Cloud auto-redeploy detectado tras push a main.
+10. Validación pública en `yidoca-scoring.streamlit.app` confirmada.
+
+### Incidente importante con Claude Code
+
+A mitad de sub-sesión, decisión meta de delegar a Claude Code la modificación de `app.py` (añadir CSS + modificar `render_panel_detalle`). El prompt fue claro y específico.
+
+Claude Code respondió con diagnóstico aparentemente coherente afirmando que la función `render_panel_detalle` "no existía" en el commit actual y "existía" en un commit anterior. Pidió confirmación antes de actuar (disciplina correcta del lado de la herramienta).
+
+Verificación con datos reales confirmó: la app pública SÍ funcionaba correctamente, pero `git diff app.py` mostró que **Claude Code había eliminado la función completa** (85 líneas con `-`) al intentar modificarla in-place. El archivo local quedó a medias mientras la app pública seguía sirviendo la última versión committeada.
+
+**Resolución:** `git restore app.py` para descartar los cambios destructivos. Después se aplicaron los 2 cambios manualmente con dictado del mentor (línea de extracción de `recomendacion` + bloque HTML al final). Validación local exitosa.
+
+### Métricas
+
+- Tokens entrada totales: 136.021 (~80% más que sin recomendación, por prompt más largo)
+- Tokens salida totales: 12.215 (~35% más, por campo nuevo)
+- Distribución final por categoría: 18 Encaje claro / 13 Encaje parcial / 13 Encaje débil / 6 No encaje
+- 0 inconsistencias matemáticas tras post-procesamiento
+- 0 errores de parseo JSON
+
+### Lecciones operativas grandes
+
+1. **Cuándo usar Claude Code vs dictado del mentor:** Claude Code es valioso para AÑADIR bloques en posiciones específicas, buscar+reemplazar strings, crear archivos nuevos. NO es fiable para MODIFICAR funciones complejas existentes (riesgo de eliminar al intentar reemplazar). En estos casos, dictado del mentor sigue siendo más seguro.
+
+2. **Patrón post-procesamiento determinista de salidas LLM:** los LLMs son probabilísticos también en matemática simple (4% error en sumas observado). Lo determinista se calcula en código (sumas, totales, agregaciones), lo subjetivo lo decide la IA (razonamiento, categorización, recomendaciones).
+
+3. **Información para razonamiento interno vs output expuesto:** prompt engineering profesional separa qué información usa el LLM para razonar de qué información aparece en la respuesta. Aplicable a datos confidenciales que NO deben aparecer en demos públicas (precios, fórmulas internas).
+
+4. **Streamlit caché agresiva con datos cargados:** cuando cambia el esquema de los datos subyacentes (añadir campos nuevos al JSON), reiniciar Streamlit (Ctrl+C + relanzar) garantiza limpieza de caché. "Clear cache" del menú a veces no es suficiente.
+
+5. **Trampa Claude Code modificando funciones complejas:** patrón "delete + insert" usado por LLMs para modificar funciones puede dejar archivos a medias si falla a mitad. Siempre verificar estado real del archivo con `git diff` antes de seguir, NO ignorar diagnósticos para "ir más rápido".
+
+### Workflow Git completo aplicado autónomamente
+
+Eduardo aplicó el workflow completo de rama experimental (crear → trabajar → validar local → commit + push → checkout main + merge → push main → borrar rama local + remota) sin necesidad de dictado paso a paso. Indica disciplina profesional interiorizada desde sesiones 6 y 9.
+
+---------------------------------------------------------------------------------------------------------------------
+
 ## Sesión 9 — 12 mayo 2026
 
 **Duración prevista:** abierta, hasta donde aguantemos
